@@ -21,7 +21,7 @@ sudo apt install vim git zip htop gnome-calculator
 # Резервное копирование
 cd /
 apt-get clean
-tar cvpzf backup.tgz -exclude=/proc -exclude=/lost+found -exclude=/backup.tgz -exclude=/mnt -exclude=/sys -exclude=/web /
+tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys --exclude=/web /
 
 # Образ системы
 sudo apt install genisoimage
