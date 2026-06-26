@@ -19,9 +19,20 @@ ssh -X имя_пользователя@ip-адресс
 sudo apt install vim git zip htop gnome-calculator
 
 # Резервное копирование
-cd /
-apt-get clean
-tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/mnt --exclude=/sys --exclude=/web /
+sudo mkdir -p /backup
+sudo tar -czpvf /backup/ubuntu_backup_$(date +%Y%m%d).tar.gz \
+  --exclude=/backup \
+  --exclude=/proc \
+  --exclude=/sys \
+  --exclude=/dev \
+  --exclude=/mnt \
+  --exclude=/media \
+  --exclude=/tmp \
+  --exclude=/run \
+  --exclude=/lost+found \
+  --exclude=/var/cache/apt/archives/*.deb \
+  /
+ls -lh /backup/
 
 # Образ системы
 sudo apt install genisoimage
