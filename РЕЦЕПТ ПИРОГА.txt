@@ -20,20 +20,17 @@ sudo apt install vim git zip htop gnome-calculator
 
 # Резервное копирование
 sudo mkdir -p /backup
-sudo tar -czvf /ubuntu_backup_$(date +%Y%m%d).tar.gz \
-  --exclude=/ubuntu_backup_*.tar.gz \
-  --exclude=/proc/ \
-  --exclude=/sys/ \
-  --exclude=/dev/ \
-  --exclude=/mnt/ \
-  --exclude=/media/ \
-  --exclude=/tmp/ \
-  --exclude=/run/ \
-  --exclude=/lost+found/ \
+sudo tar -czpvf /backup/ubuntu_backup_$(date +%Y%m%d).tar.gz \
+  --exclude=/backup \
+  --exclude=/proc \
+  --exclude=/sys \
+  --exclude=/dev \
+  --exclude=/mnt \
+  --exclude=/media \
+  --exclude=/tmp \
+  --exclude=/run \
+  --exclude=/lost+found \
   --exclude=/var/cache/apt/archives/*.deb \
-  --exclude=/home/*/.cache \
-  --exclude=/var/log/*.log \
-  --one-file-system \
   /
 ls -lh /backup/
 
