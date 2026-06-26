@@ -36,7 +36,7 @@ ls -lh /backup/
 
 # Образ системы
 sudo apt install genisoimage
-mkisofs -o MyISO.iso /
+mkisofs -allow-limited-size -udf -o MyISO.iso /
 
 # Группы пользователей
 sudo apt install gnome-system-tools 
